@@ -1,0 +1,4 @@
+mysqlRootPassword: root123
+mysqlUser: wdias
+mysqlPassword: wdias123
+mysqlDatabase: metadata
