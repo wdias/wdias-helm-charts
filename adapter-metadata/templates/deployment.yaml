@@ -1,0 +1,40 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+    module: adapter
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      name: {{ .Release.Name }}
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: {{ .Release.Name }}
+          image: {{ .Release.Name }}
+          imagePullPolicy: Never
+          # command: ["flask", "run", "-p", "8080", "-h", "0.0.0.0"]
+          tty: true
+          stdin: true
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          # livenessProbe:
+          #   httpGet:
+          #     path: /public/hc
+          #     port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /public/hc
+          #     port: http
