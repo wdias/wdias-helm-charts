@@ -30,18 +30,22 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
-          # livenessProbe:
-          #   httpGet:
-          #     path: /public/hc
-          #     port: http
+          livenessProbe:
+            httpGet:
+              path: /public/hc
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 30
           # readinessProbe:
           #   httpGet:
           #     path: /public/hc
           #     port: http
+          #   initialDelaySeconds: 5
+          #   periodSeconds: 30
           resources:
             limits:
               memory: 256Mi
               cpu: 200m
             requests:
               memory: 128Mi
-              cpu: 150m
+              cpu: 100m
