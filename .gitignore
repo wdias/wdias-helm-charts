@@ -1,4 +1,5 @@
 mychart
+nohup.out
 #  Local .terraform directories
 **/.terraform/*
 

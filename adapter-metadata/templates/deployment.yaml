@@ -38,3 +38,10 @@ spec:
           #   httpGet:
           #     path: /public/hc
           #     port: http
+          resources:
+            limits:
+              memory: 256Mi
+              cpu: 200m
+            requests:
+              memory: 128Mi
+              cpu: 100m

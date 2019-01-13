@@ -4,7 +4,7 @@ mysqlPassword: wdias123
 mysqlDatabase: metadata
 
 persistence:
-  size: 1Gi RW
+  size: 1Gi
 
 resources:
   limits:
