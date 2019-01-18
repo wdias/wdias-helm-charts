@@ -21,8 +21,8 @@ spec:
       restartPolicy: Always
       containers:
         - name: {{ .Release.Name }}
-          image: {{ .Release.Name }}
-          imagePullPolicy: Never
+          image: {{ if .Values.dev }} {{ .Release.Name }} {{ else }} wdias/{{ .Release.Name }} {{ end }}
+          imagePullPolicy: {{ if .Values.dev }} Never {{ else }} Always {{ end }}
           ports:
             - name: http
               containerPort: 8080

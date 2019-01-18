@@ -21,8 +21,8 @@ spec:
       restartPolicy: Always
       containers:
         - name: {{ .Release.Name }}
-          image: {{ .Release.Name }}
-          imagePullPolicy: Never
+          image: {{ if .Values.dev }} {{ .Release.Name }} {{ else }} wdias/{{ .Release.Name }} {{ end }}
+          imagePullPolicy: {{ if .Values.dev }} Never {{ else }} Always {{ end }}
           # command: ["flask", "run", "-p", "8080", "-h", "0.0.0.0"]
           tty: true
           stdin: true
