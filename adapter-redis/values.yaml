@@ -1,0 +1,12 @@
+# Redis Database Configurations
+
+password: wdias123
+
+cluster:
+  enabled: false
+
+master:
+  persistence:
+    enabled: false
+  service:
+    type: NodePort

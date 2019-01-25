@@ -4,3 +4,8 @@
 
 dev: false
 replicaCount: 1
+
+redisHost: 'adapter-redis-master.default.svc.cluster.local'
+redisPort: 6379
+redisDB: 0
+redisPassword: wdias123
