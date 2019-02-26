@@ -10,7 +10,7 @@ spec:
   - host: api.wdias.com
     http:
       paths:
-        - path: /export
+        - path: /export/json/raw
           backend:
             serviceName: {{ .Release.Name }}
             servicePort: http

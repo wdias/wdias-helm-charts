@@ -10,7 +10,7 @@ spec:
   - host: api.wdias.com
     http:
       paths:
-        - path: /import/json/raw
+        - path: /export/netcdf/binary
           backend:
             serviceName: {{ .Release.Name }}
             servicePort: http
