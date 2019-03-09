@@ -4,7 +4,8 @@ mysqlPassword: wdias123
 mysqlDatabase: extension
 
 persistence:
-  size: 1Gi
+  enabled: false
+  size: 500Mi
 
 resources:
   limits:
@@ -12,4 +13,4 @@ resources:
     cpu: 200m
   requests:
     memory: 128Mi
-    cpu: 150m
+    cpu: 100m
