@@ -4,8 +4,12 @@ metadata:
   name: {{ .Release.Name }}
   annotations:
     kubernetes.io/ingress.class: nginx      
-    ingress.kubernetes.io/rewrite-target: "/"
+    nginx.ingress.kubernetes.io/rewrite-target: "/"
 spec:
+  tls:
+  - hosts:
+    - {{ .Release.Name }}.wdias.com
+    secretName: wdias.com-tls
   rules:
   - host: {{ .Release.Name }}.wdias.com
     http:

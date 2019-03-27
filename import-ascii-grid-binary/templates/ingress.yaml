@@ -4,13 +4,17 @@ metadata:
   name: {{ .Release.Name }}
   annotations:
     kubernetes.io/ingress.class: nginx      
-    ingress.kubernetes.io/rewrite-target: "/"
+    nginx.ingress.kubernetes.io/rewrite-target: "/"
 spec:
+  tls:
+    - hosts:
+      - api.wdias.com
+      secretName: wdias.com-tls
   rules:
   - host: api.wdias.com
     http:
       paths:
-        - path: /import/ascii-grid/upload
+        - path: /import/ascii-grid/binary
           backend:
             serviceName: {{ .Release.Name }}
             servicePort: http

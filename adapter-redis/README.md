@@ -41,3 +41,12 @@ To connect to your database from outside the cluster execute the following comma
     export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services adapter-redis-master)
     redis-cli -h $NODE_IP -p $NODE_PORT -a $REDIS_PASSWORD
 ```
+
+#### Database allocation
+0 - adapter-metadata
+1 - extension-scheduler / adapter-extension
+2 - adapter-status
+
+### Dev Support
+- `kubectl get pods | grep 'redis' | awk '{print $1}' | xargs -o -I {} kubectl exec -it {} -- /bin/bash`
+- `redis-cli -h 127.0.0.1 -p 6379 -n <DB_NUMBER> -a <PASSWORD>`
