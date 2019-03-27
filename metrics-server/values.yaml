@@ -1,0 +1,4 @@
+args:
+  # - --tls-cert-file=default/wdias.com-tls
+  # - --tls-private-key-file=default/wdias.com-tls
+  - --kubelet-insecure-tls
