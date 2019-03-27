@@ -1,0 +1,27 @@
+apiVersion: v1
+data:
+  #X-Frame-Options: "DENY"
+  Referrer-Policy: "strict-origin-when-cross-origin"
+  X-XSS-Protection: "1; mode=block"
+  X-Content-Type-Options: "nosniff"
+kind: ConfigMap
+metadata:
+  name: nginx-ingress-client-headers
+  namespace: default
+---
+apiVersion: v1
+data:
+  X-Using-Nginx-Controller: "true"
+kind: ConfigMap
+metadata:
+  name: nginx-ingress-proxy-headers
+  namespace: default
+---
+apiVersion: v1
+data:
+  add-headers: "default/nginx-ingress-client-headers"
+  proxy-set-headers: "default/nginx-ingress-proxy-headers"
+kind: ConfigMap
+metadata:
+  name: nginx-ingress
+  namespace: default
