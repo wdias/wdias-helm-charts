@@ -1,0 +1,16 @@
+mongodbRootPassword: root123
+mongodbUsername: wdias
+mongodbPassword: wdias123
+mongodbDatabase: query
+
+persistence:
+  enabled: false
+  size: 500Mi
+
+resources:
+  limits:
+    memory: 256Mi
+    cpu: 200m
+  requests:
+    memory: 256Mi
+    cpu: 150m
