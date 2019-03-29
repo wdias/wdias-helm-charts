@@ -1,0 +1,31 @@
+fullnameOverride: adapter-scalar-influxdb
+
+persistence:
+  size: 1Gi
+
+resources:
+  limits:
+    memory: 1Gi
+    cpu: 1
+
+ingress:
+  enabled: false
+  hostname: influxdb.wdias.com
+
+setDefaultUser:
+  enabled: false
+  activeDeadline: 300
+  restartPolicy: OnFailure
+  user:
+    ## The user name
+    ## Default: "admin"
+    username: "wdias"
+
+    ## User password
+    ## single quotes must be escaped (\')
+    ## Default: (Randomly generated 10 characters of AlphaNum)
+    password: wdias123
+
+    ## User privileges
+    ## Default: "WITH ALL PRIVILEGES"
+    privileges: "WITH ALL PRIVILEGES"
