@@ -1,4 +1,4 @@
-fullnameOverride: adapter-scalar-influxdb
+fullnameOverride: adapter-vector-influxdb
 
 persistence:
   size: 1Gi
