@@ -1,3 +1,5 @@
+.idea
+*.code-workspace
 mychart
 nohup.out
 #  Local .terraform directories
