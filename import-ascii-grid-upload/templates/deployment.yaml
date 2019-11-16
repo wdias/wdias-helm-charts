@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}
   labels:
     app: {{ .Release.Name }}
-    module: adapter
+    module: import
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -63,3 +63,5 @@ spec:
             - name: http
               containerPort: 8082
               protocol: TCP
+      nodeSelector:
+        datatype: grid
