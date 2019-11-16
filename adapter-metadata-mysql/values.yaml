@@ -5,7 +5,7 @@ mysqlDatabase: metadata
 
 persistence:
   enabled: false
-  size: 500Mi
+  size: 1Gi
 
 resources:
   limits:
