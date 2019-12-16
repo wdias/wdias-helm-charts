@@ -19,10 +19,16 @@ spec:
         app: {{ .Release.Name }}
     spec:
       restartPolicy: Always
+      volumes:
+        - name: grid-data-volume
+          emptyDir: {}
       containers:
         - name: {{ .Release.Name }}
           image: {{ if .Values.dev }} {{ .Release.Name }} {{ else }} wdias/{{ .Release.Name }} {{ end }}
           imagePullPolicy: {{ if .Values.dev }} Never {{ else }} Always {{ end }}
+          volumeMounts:
+            - mountPath: /grid_data
+              name: grid-data-volume
           ports:
             - name: http
               containerPort: 8080
