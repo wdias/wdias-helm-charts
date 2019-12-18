@@ -8,8 +8,8 @@ metadata:
 spec:
   tls:
   - hosts:
-    - grid.noondv.com
-    secretName: noondv.com-tls
+    - grid.wdias.com
+    secretName: wdias.com-tls
   rules:
   - host: grid.wdias.com
     http:
