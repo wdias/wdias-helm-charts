@@ -5,7 +5,7 @@ mongodbDatabase: query
 
 persistence:
   enabled: false
-  size: 1Gi
+  size: 5Gi
 
 resources:
   limits:
