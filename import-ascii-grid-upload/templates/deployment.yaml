@@ -63,5 +63,13 @@ spec:
             - name: http
               containerPort: 8082
               protocol: TCP
-      nodeSelector:
-        datatype: grid
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: datatype
+                operator: In
+                values:
+                - grid

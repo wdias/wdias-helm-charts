@@ -50,5 +50,15 @@ spec:
             #requests:
               #memory: 512Mi
               #cpu: 400m
-      nodeSelector:
-        datatype: grid
+      # nodeSelector:
+      #   datatype: grid
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: datatype
+                operator: In
+                values:
+                - grid
