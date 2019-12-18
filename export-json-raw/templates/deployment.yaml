@@ -42,3 +42,13 @@ spec:
             #requests:
               #memory: 256Mi
               #cpu: 200m
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: datatype
+                operator: NotIn
+                values:
+                - grid

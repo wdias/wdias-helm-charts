@@ -35,3 +35,13 @@ spec:
           #   httpGet:
           #     path: /public/hc
           #     port: http
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: datatype
+                operator: NotIn
+                values:
+                - grid
