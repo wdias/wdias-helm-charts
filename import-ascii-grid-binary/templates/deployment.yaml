@@ -50,7 +50,7 @@ spec:
           - weight: 1
             preference:
               matchExpressions:
-              - key: datatype
+              - key: module
                 operator: In
                 values:
                 - grid
