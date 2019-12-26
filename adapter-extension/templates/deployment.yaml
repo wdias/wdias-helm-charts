@@ -52,6 +52,14 @@ spec:
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 10
+            preference:
+              matchExpressions:
+              - key: module
+                operator: In
+                values:
+                - core
+                - common
           - weight: 1
             preference:
               matchExpressions:
