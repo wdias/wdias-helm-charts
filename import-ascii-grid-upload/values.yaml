@@ -3,4 +3,4 @@
 # Declare variables to be passed into your templates.
 
 dev: false
-replicaCount: 1
+replicaCount: 3

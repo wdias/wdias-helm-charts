@@ -51,7 +51,25 @@ nodeSelector: {}
 
 ## Affinity for pod assignment
 ## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
-affinity: {}
+affinity:
+  nodeAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 20
+      preference:
+        matchExpressions:
+        - key: module
+          operator: In
+          values:
+          - scalar
+    - weight: 10
+      preference:
+        matchExpressions:
+        - key: module
+          operator: NotIn
+          values:
+          - core
+          - grid
+          - test
 
 ## Tolerations for pod assignment
 ## Ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/

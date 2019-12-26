@@ -52,19 +52,19 @@ spec:
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 10
+          - weight: 15
             preference:
               matchExpressions:
               - key: module
                 operator: In
                 values:
                 - core
-                - common
-          - weight: 1
+          - weight: 10
             preference:
               matchExpressions:
               - key: module
                 operator: NotIn
                 values:
+                - scalar
                 - grid
                 - test
