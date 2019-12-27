@@ -73,3 +73,11 @@ spec:
                 operator: In
                 values:
                 - grid
+          - weight: 10
+            preference:
+              matchExpressions:
+              - key: module
+                operator: NotIn
+                values:
+                - scalar
+                - test
