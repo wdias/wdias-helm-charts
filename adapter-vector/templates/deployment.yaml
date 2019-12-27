@@ -54,12 +54,11 @@ spec:
                 operator: In
                 values:
                 - scalar
-          - weight: 15
+          - weight: 10
             preference:
               matchExpressions:
               - key: module
                 operator: NotIn
                 values:
-                - core
                 - grid
                 - test

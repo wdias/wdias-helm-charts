@@ -52,7 +52,7 @@ spec:
                 operator: In
                 values:
                 - core
-          - weight: 15
+          - weight: 10
             preference:
               matchExpressions:
               - key: module

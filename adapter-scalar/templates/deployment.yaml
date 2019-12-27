@@ -60,6 +60,5 @@ spec:
               - key: module
                 operator: NotIn
                 values:
-                - core
                 - grid
                 - test

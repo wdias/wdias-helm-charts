@@ -66,7 +66,7 @@ spec:
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 20
+          - weight: 30
             preference:
               matchExpressions:
               - key: module

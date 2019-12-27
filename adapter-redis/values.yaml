@@ -21,7 +21,7 @@ master:
   affinity:
     nodeAffinity:
       preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 20
+      - weight: 15
         preference:
           matchExpressions:
           - key: module
@@ -46,7 +46,7 @@ slave:
   affinity:
     nodeAffinity:
       preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 20
+      - weight: 15
         preference:
           matchExpressions:
           - key: module

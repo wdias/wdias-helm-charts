@@ -21,7 +21,25 @@ nodeSelector: {}
 
 ## Affinity
 ## ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
-affinity: {}
+affinity:
+  nodeAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 15
+      preference:
+        matchExpressions:
+        - key: module
+          operator: In
+          values:
+          - core
+    - weight: 10
+      preference:
+        matchExpressions:
+        - key: module
+          operator: NotIn
+          values:
+          - scalar
+          - grid
+          - test
 # Define separate affinity for arbiter pod
 affinityArbiter: {}
 
