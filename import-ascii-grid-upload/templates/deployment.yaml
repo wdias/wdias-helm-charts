@@ -77,6 +77,13 @@ spec:
             preference:
               matchExpressions:
               - key: module
+                operator: In
+                values:
+                - core
+          - weight: 30
+            preference:
+              matchExpressions:
+              - key: module
                 operator: NotIn
                 values:
                 - scalar
