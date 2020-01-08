@@ -73,14 +73,14 @@ spec:
                 operator: In
                 values:
                 - grid
-          - weight: 10
+          - weight: 20
             preference:
               matchExpressions:
               - key: module
                 operator: In
                 values:
                 - core
-          - weight: 30
+          - weight: 20
             preference:
               matchExpressions:
               - key: module
