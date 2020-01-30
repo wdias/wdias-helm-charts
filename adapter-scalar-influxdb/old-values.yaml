@@ -1,0 +1,79 @@
+fullnameOverride: adapter-scalar-influxdb
+
+## Persist data to a persistent volume
+persistence:
+  enabled: false
+  ## influxdb data Persistent Volume Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  # storageClass: "-"
+  annotations:
+  accessMode: ReadWriteOnce
+  size: 8Gi
+
+resources:
+  #limits:
+    #memory: 1Gi
+    #cpu: 1
+  requests:
+    memory: 256Mi
+    cpu: 0.2
+
+ingress:
+  enabled: false
+  hostname: influxdb.noondv.com
+
+setDefaultUser:
+  enabled: false
+  activeDeadline: 300
+  restartPolicy: OnFailure
+  user:
+    ## The user name
+    ## Default: "admin"
+    username: "wdias"
+
+    ## User password
+    ## single quotes must be escaped (\')
+    ## Default: (Randomly generated 10 characters of AlphaNum)
+    password: wdias123
+
+    ## User privileges
+    ## Default: "WITH ALL PRIVILEGES"
+    privileges: "WITH ALL PRIVILEGES"
+
+## Node labels for pod assignment
+## Ref: https://kubernetes.io/docs/user-guide/node-selection/
+nodeSelector: {}
+
+## Affinity for pod assignment
+## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
+affinity:
+  nodeAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 20
+      preference:
+        matchExpressions:
+        - key: module
+          operator: In
+          values:
+          - scalar
+    - weight: 10
+      preference:
+        matchExpressions:
+        - key: module
+          operator: NotIn
+          values:
+          - grid
+          - test
+
+## Tolerations for pod assignment
+## Ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+tolerations: []
+# - key: "key"
+#   operator: "Equal|Exists"
+#   value: "value"
+#   effect: "NoSchedule|PreferNoSchedule|NoExecute(1.6 only)"

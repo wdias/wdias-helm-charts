@@ -6,6 +6,10 @@ InfluxDB is a timeseries database with persistance, so, it need to run separatel
 helm install --name adapter-vector -f values.yaml stable/influxdb
 ```
 
+### Why local copy of InfluxDB Helm chart
+It encourage to use the official helm charts. Compare to other helm charts, I always encounter issues every month with InfluxDB helm charts.
+Thus official helm charts copied and using a local copy, since I don't want to spend time on debugging rather doing some useful work.
+
 ### Configurations:
 1. https://github.com/helm/charts/blob/master/stable/influxdb/README.md
 2. https://github.com/helm/charts/blob/master/stable/influxdb/values.yaml
