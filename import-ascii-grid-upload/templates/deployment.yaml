@@ -63,6 +63,13 @@ spec:
             - name: http
               containerPort: 8082
               protocol: TCP
+          resources:
+            #limits:
+              #memory: 512Mi
+              #cpu: 2000m
+            #requests:
+              #memory: 256Mi
+              #cpu: 1000m
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
