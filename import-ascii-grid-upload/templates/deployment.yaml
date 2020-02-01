@@ -45,11 +45,11 @@ spec:
           #     port: http
           resources:
             #limits:
-              #memory: 512Mi
-              #cpu: 2000m
+              #memory: 256Mi
+              #cpu: 200m
             #requests:
               #memory: 256Mi
-              #cpu: 1000m
+              #cpu: 150m
         - name: worker
           image: {{ if .Values.dev }} {{ .Release.Name }} {{ else }} wdias/{{ .Release.Name }} {{ end }}
           imagePullPolicy: {{ if .Values.dev }} Never {{ else }} Always {{ end }}
