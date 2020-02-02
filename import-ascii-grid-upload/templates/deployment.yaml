@@ -50,7 +50,7 @@ spec:
             #requests:
               #memory: 256Mi
               #cpu: 150m
-        - name: worker
+        - name: {{ .Release.Name }}-worker
           image: {{ if .Values.dev }} {{ .Release.Name }} {{ else }} wdias/{{ .Release.Name }} {{ end }}
           imagePullPolicy: {{ if .Values.dev }} Never {{ else }} Always {{ end }}
           volumeMounts:
